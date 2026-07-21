@@ -168,7 +168,7 @@
         }
 
         .tagline {
-            margin: 0.55rem 0 1.25rem;
+            margin: 0.55rem 0 0;
             max-width: 28rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 0.98rem;
@@ -178,8 +178,27 @@
             line-height: 1.45;
         }
 
+        .intro-copy {
+            margin: 1.35rem 0 0;
+            max-width: 32rem;
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.65;
+        }
+        .intro-copy p {
+            margin: 0 0 0.85rem;
+        }
+        .intro-copy p:last-child {
+            margin-bottom: 0;
+        }
+        .intro-copy .question {
+            font-style: italic;
+            font-weight: 600;
+        }
+
         .essays {
-            margin: 0;
+            margin: 1.75rem 0 0;
             list-style: none;
             padding-left: 0;
         }
@@ -270,6 +289,11 @@
             {{ end }}
             {{ if .Config.Tagline }}
             <p class="tagline">{{ .Config.Tagline }}</p>
+            {{ end }}
+            {{ if .Config.Intro }}
+            <div class="intro-copy">
+                {{ .Config.Intro }}
+            </div>
             {{ end }}
             {{ if .Essays }}
             <ul class="essays">
