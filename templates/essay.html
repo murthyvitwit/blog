@@ -138,11 +138,28 @@
         }
 
         footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 1.25rem;
             margin-top: 3rem;
             padding-top: 1rem;
             border-top: 1px solid var(--rule);
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 0.95rem;
+        }
+        footer a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 0.08em;
+        }
+        footer a:hover {
+            color: var(--link-hover);
+        }
+        footer .back {
+            font-weight: 600;
+            margin-right: auto;
         }
     </style>
 </head>
@@ -159,7 +176,13 @@
             {{ .Essay.Content }}
         </article>
         <footer>
-            <a href="index.html">← All essays</a>
+            <a class="back" href="index.html">← {{ if .Config.Section }}{{ .Config.Section }}{{ else }}All essays{{ end }}</a>
+            {{ if .Config.Email }}
+            <a href="mailto:{{ .Config.Email }}">{{ .Config.Email }}</a>
+            {{ end }}
+            {{ if and .Config.CtaText .Config.CtaURL }}
+            <a href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
+            {{ end }}
         </footer>
     </div>
 </body>
