@@ -3,9 +3,14 @@ bio: >-
   Cofounder of <a href="https://vitwit.com" target="_blank" rel="noopener noreferrer">Vitwit</a>
   and <a href="https://kriyaapp.com" target="_blank" rel="noopener noreferrer">Kriya AI App</a>.
 focus: I investigate how technology, businesses and systems work from first principles—and document what reality teaches while building them.
-tagline: Essays on technology, systems, and building things that last.
-section: Free Thoughts
-description: Cofounder of Vitwit and Kriya AI App. Essays on technology, systems, and building durable things.
+section: First Principles for Builders
+tagline: Investigating why products, businesses and systems work.
+intro: |
+  <p>I write to understand, not to publish.</p>
+  <p>Most essays begin with a simple question:</p>
+  <p class="question">Why does this exist?</p>
+  <p>The answers often become better products, better decisions and occasionally better businesses.</p>
+description: Cofounder of Vitwit and Kriya AI App. First-principles essays on technology, business, and building enduring products.
 site_url: https://murthy.xyz
 same_as:
   - https://www.linkedin.com/in/murthyvitwit/

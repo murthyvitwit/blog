@@ -158,28 +158,46 @@
 
         .section-title {
             margin: 0;
-            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.82rem;
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
             font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--muted);
-            line-height: 1.3;
+            letter-spacing: -0.02em;
+            color: var(--ink);
+            line-height: 1.25;
         }
 
         .tagline {
-            margin: 0.55rem 0 1.25rem;
-            max-width: 28rem;
+            margin: 0.5rem 0 0;
+            max-width: 30rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.98rem;
+            font-size: 1.02rem;
             font-weight: 400;
-            font-style: italic;
             color: var(--muted);
-            line-height: 1.45;
+            line-height: 1.5;
+        }
+
+        .intro-copy {
+            margin: 1.5rem 0 0;
+            max-width: 32rem;
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.65;
+        }
+        .intro-copy p {
+            margin: 0 0 0.85rem;
+        }
+        .intro-copy p:last-child {
+            margin-bottom: 0;
+        }
+        .intro-copy .question {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--ink);
         }
 
         .essays {
-            margin: 0;
+            margin: 2rem 0 0;
             list-style: none;
             padding-left: 0;
         }
@@ -270,6 +288,11 @@
             {{ end }}
             {{ if .Config.Tagline }}
             <p class="tagline">{{ .Config.Tagline }}</p>
+            {{ end }}
+            {{ if .Config.Intro }}
+            <div class="intro-copy">
+                {{ .Config.Intro }}
+            </div>
             {{ end }}
             {{ if .Essays }}
             <ul class="essays">
