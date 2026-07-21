@@ -95,9 +95,16 @@
             line-height: 1.5;
         }
 
+        .ctas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 1.15rem;
+            margin-top: 1.25rem;
+        }
+
         .cta {
             display: inline-block;
-            margin-top: 1.25rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 0.98rem;
             font-weight: 600;
@@ -201,8 +208,15 @@
                 <p class="focus">{{ .Config.Focus }}</p>
                 {{ end }}
             </div>
-            {{ if and .Config.CtaText .Config.CtaURL }}
-            <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
+            {{ if or (and .Config.CtaText .Config.CtaURL) .Config.Email }}
+            <div class="ctas">
+                {{ if and .Config.CtaText .Config.CtaURL }}
+                <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
+                {{ end }}
+                {{ if .Config.Email }}
+                <a class="cta" href="mailto:{{ .Config.Email }}">{{ .Config.Email }}</a>
+                {{ end }}
+            </div>
             {{ end }}
         </header>
 

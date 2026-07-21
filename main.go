@@ -26,6 +26,7 @@ type Config struct {
 	Photo   string `yaml:"photo"`
 	CtaText string `yaml:"cta_text"`
 	CtaURL  string `yaml:"cta_url"`
+	Email   string `yaml:"email"`
 	Domain  string `yaml:"domain"`
 }
 
