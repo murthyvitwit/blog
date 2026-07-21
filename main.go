@@ -19,8 +19,9 @@ import (
 )
 
 type Config struct {
-	Name string `yaml:"name"`
-	Bio  string `yaml:"bio"`
+	Name   string `yaml:"name"`
+	Bio    string `yaml:"bio"`
+	Domain string `yaml:"domain"`
 }
 
 type FrontMatter struct {
@@ -107,6 +108,11 @@ func build() error {
 		return err
 	}
 	fmt.Printf("Generated %s\n", filepath.Join(outputDir, "index.html"))
+
+	if err := writeCNAME(outputDir, cfg.Domain); err != nil {
+		return err
+	}
+
 	fmt.Println("Blog generated successfully in the 'site' directory.")
 	return nil
 }
@@ -123,7 +129,29 @@ func loadConfig(path string) (Config, error) {
 	if cfg.Name == "" {
 		cfg.Name = "Murthy"
 	}
+	cfg.Domain = normalizeDomain(cfg.Domain)
 	return cfg, nil
+}
+
+func normalizeDomain(domain string) string {
+	domain = strings.TrimSpace(domain)
+	domain = strings.TrimPrefix(domain, "https://")
+	domain = strings.TrimPrefix(domain, "http://")
+	domain = strings.TrimSuffix(domain, "/")
+	return domain
+}
+
+func writeCNAME(outputDir, domain string) error {
+	path := filepath.Join(outputDir, "CNAME")
+	if domain == "" {
+		_ = os.Remove(path)
+		return nil
+	}
+	if err := os.WriteFile(path, []byte(domain+"\n"), 0o644); err != nil {
+		return fmt.Errorf("write CNAME: %w", err)
+	}
+	fmt.Printf("Generated %s (%s)\n", path, domain)
+	return nil
 }
 
 func loadEssays(dir string) ([]Essay, error) {
