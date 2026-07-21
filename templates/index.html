@@ -139,41 +139,27 @@
             border-bottom-color: currentColor;
         }
 
-        .manifesto {
-            margin-top: 3rem;
-            animation: rise 0.8s ease-out 0.12s both;
+        .about {
+            margin: 1.75rem 0 0;
+            max-width: 34rem;
+            font-size: 1.06rem;
+            line-height: 1.7;
+            color: var(--muted);
         }
-
-        .lede {
+        .about .lede {
             margin: 0;
-            font-size: clamp(1.2rem, 2.8vw, 1.4rem);
-            font-weight: 400;
-            line-height: 1.55;
-            letter-spacing: -0.015em;
             color: var(--ink);
         }
-
-        .body-line {
-            margin: 1.15rem 0 0;
-            color: var(--muted);
-            font-size: 1.08rem;
-            line-height: 1.7;
+        .about .body-line {
+            margin: 0.9rem 0 0;
         }
-
-        .question-label {
-            margin: 2rem 0 0;
-            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.9rem;
-            color: var(--faint);
+        .about .question-label {
+            margin: 0.9rem 0 0;
         }
-
-        .question {
-            margin: 0.55rem 0 0;
-            font-size: clamp(1.55rem, 4vw, 1.95rem);
-            font-weight: 600;
+        .about .question {
+            margin: 0.35rem 0 0;
             font-style: italic;
-            letter-spacing: -0.02em;
-            line-height: 1.25;
+            font-weight: 600;
             color: var(--ink);
         }
 
@@ -181,7 +167,7 @@
             margin-top: 3.75rem;
             padding-top: 2.5rem;
             border-top: 1px solid var(--rule);
-            animation: rise 0.8s ease-out 0.22s both;
+            animation: rise 0.8s ease-out 0.15s both;
         }
 
         .archive-title {
@@ -255,7 +241,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .hero, .manifesto, .archive { animation: none; }
+            .hero, .archive { animation: none; }
         }
 
         @media (max-width: 520px) {
@@ -291,15 +277,12 @@
                 {{ end }}
             </div>
             {{ end }}
-        </header>
-
-        <section class="manifesto" aria-label="About the writing">
             {{ if .Config.Intro }}
-            <div class="manifesto-body">
+            <div class="about">
                 {{ .Config.Intro }}
             </div>
             {{ end }}
-        </section>
+        </header>
 
         <section class="archive" aria-label="{{ if .Config.Section }}{{ .Config.Section }}{{ else }}Essays{{ end }}">
             {{ if .Config.Section }}
