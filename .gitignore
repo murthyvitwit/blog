@@ -1,0 +1,7 @@
+# Ignore OS / editor noise
+.DS_Store
+*.swp
+
+# Built HTML is published from the gh-pages branch by Actions
+# Keep local builds out of main so Pages never serves the whole repo.
+/site/

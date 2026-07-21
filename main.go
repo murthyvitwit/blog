@@ -113,6 +113,10 @@ func build() error {
 		return err
 	}
 
+	if err := writeNoJekyll(outputDir); err != nil {
+		return err
+	}
+
 	fmt.Println("Blog generated successfully in the 'site' directory.")
 	return nil
 }
@@ -151,6 +155,15 @@ func writeCNAME(outputDir, domain string) error {
 		return fmt.Errorf("write CNAME: %w", err)
 	}
 	fmt.Printf("Generated %s (%s)\n", path, domain)
+	return nil
+}
+
+func writeNoJekyll(outputDir string) error {
+	path := filepath.Join(outputDir, ".nojekyll")
+	if err := os.WriteFile(path, []byte{}, 0o644); err != nil {
+		return fmt.Errorf("write .nojekyll: %w", err)
+	}
+	fmt.Printf("Generated %s\n", path)
 	return nil
 }
 

@@ -2,8 +2,7 @@
 
 Personal essay site. Write Markdown in git; a small Go program builds static HTML.
 
-Default Pages URL: https://murthyvitwit.github.io/blog/  
-Custom domain: https://murthy.xyz/ (`domain` in [`config.yaml`](config.yaml)).
+Live site: https://murthy.xyz/
 
 ## Write an essay
 
@@ -37,20 +36,28 @@ Build only (no server):
 go run . build
 ```
 
-Output lands in `site/`. If `domain` is set, build also writes `site/CNAME`.
+Output lands in `site/` (gitignored). If `domain` is set, build also writes `site/CNAME`.
 
 ## Deploy (GitHub Pages)
 
-1. In the repo: **Settings → Pages → Source: GitHub Actions**.
-2. Push to `main`. The workflow builds the site and deploys `site/`.
+Push to `main`. The **Deploy site** workflow:
+
+1. Builds HTML from `posts/`
+2. Publishes **only** that HTML to the `gh-pages` branch (so the site root is your essays, not `/site/`)
+3. Points Pages at `gh-pages` / `/`
+
+If the root URL still shows the README, set manually once:
+
+**Settings → Pages → Deploy from a branch → Branch: `gh-pages` → Folder: `/ (root)`**
+
+Do **not** choose “Deploy from a branch → `main` → `/`” (that publishes the whole repo under `/site/`).  
+Do **not** use the suggested “Static HTML” starter workflow.
 
 ## Custom domain
 
-This site uses the apex domain **murthy.xyz** (`domain` in [`config.yaml`](config.yaml)). Build writes `site/CNAME` automatically.
+Domain: **murthy.xyz** (`domain` in [`config.yaml`](config.yaml)).
 
-1. Push to `main` so the CNAME deploys with Pages.
-
-2. At your DNS provider for `murthy.xyz`, add GitHub Pages A/AAAA records:
+1. At GoDaddy (or your DNS), apex A/AAAA records:
 
    | Type | Value |
    |------|--------|
@@ -63,8 +70,6 @@ This site uses the apex domain **murthy.xyz** (`domain` in [`config.yaml`](confi
    | AAAA | `2606:50c0:8002::153` |
    | AAAA | `2606:50c0:8003::153` |
 
-   Optional: point `www.murthy.xyz` with a `CNAME` → `murthyvitwit.github.io`, then add `www.murthy.xyz` as a Pages domain alias if you want www as well.
+   Optional: `www` CNAME → `murthyvitwit.github.io`
 
-3. In the repo: **Settings → Pages → Custom domain** — enter `murthy.xyz`, wait for DNS check, then enable **Enforce HTTPS**.
-
-DNS/TLS often completes in minutes; it can take up to about 24 hours.
+2. **Settings → Pages → Custom domain** → `murthy.xyz` → **Enforce HTTPS**
