@@ -127,14 +127,8 @@
             color: var(--link-hover);
         }
 
-        .writing {
-            margin-top: 3rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid var(--rule);
-        }
-
         .tagline {
-            margin: 0 0 1.25rem;
+            margin: 1rem 0 0;
             max-width: 28rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 0.98rem;
@@ -142,6 +136,23 @@
             font-style: italic;
             color: var(--muted);
             line-height: 1.45;
+        }
+
+        .writing {
+            margin-top: 3rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .section-title {
+            margin: 0 0 1.15rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            line-height: 1.3;
         }
 
         .essays {
@@ -228,11 +239,14 @@
                 {{ end }}
             </div>
             {{ end }}
-        </header>
-
-        <section class="writing" aria-label="Essays">
             {{ if .Config.Tagline }}
             <p class="tagline">{{ .Config.Tagline }}</p>
+            {{ end }}
+        </header>
+
+        <section class="writing" aria-label="{{ if .Config.Section }}{{ .Config.Section }}{{ else }}Essays{{ end }}">
+            {{ if .Config.Section }}
+            <h2 class="section-title">{{ .Config.Section }}</h2>
             {{ end }}
             {{ if .Essays }}
             <ul class="essays">

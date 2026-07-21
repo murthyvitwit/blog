@@ -23,6 +23,7 @@ type Config struct {
 	Bio     template.HTML `yaml:"bio"`
 	Focus   string        `yaml:"focus"`
 	Tagline string        `yaml:"tagline"`
+	Section string        `yaml:"section"`
 	Photo   string        `yaml:"photo"`
 	CtaText string        `yaml:"cta_text"`
 	CtaURL  string        `yaml:"cta_url"`
