@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On writing in public — Murthy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1c1917;
+            --muted: #57534e;
+            --link: #1d4e4a;
+            --link-hover: #0f2f2c;
+            --rule: #d6d3d1;
+            --bg0: #f7f4ef;
+            --bg1: #efe8dc;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-optical-sizing: auto;
+            font-size: 1.125rem;
+            line-height: 1.75;
+            background:
+                radial-gradient(ellipse 80% 50% at 10% -10%, rgba(29, 78, 74, 0.08), transparent 55%),
+                radial-gradient(ellipse 60% 40% at 100% 0%, rgba(120, 90, 50, 0.07), transparent 50%),
+                linear-gradient(180deg, var(--bg0), var(--bg1));
+        }
+
+        a {
+            color: var(--link);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.18em;
+        }
+        a:hover { color: var(--link-hover); }
+
+        .wrap {
+            width: min(40rem, calc(100% - 2.5rem));
+            margin: 0 auto;
+            padding: 2.5rem 0 4rem;
+        }
+
+        .site-name {
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: none;
+        }
+        .site-name a {
+            color: var(--ink);
+            text-decoration: none;
+        }
+        .site-name a:hover { color: var(--link); }
+
+        header {
+            margin-bottom: 2.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        h1 {
+            margin: 0 0 0.4rem;
+            font-size: clamp(1.85rem, 4vw, 2.35rem);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .meta {
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        article :first-child { margin-top: 0; }
+        article h2, article h3 {
+            margin-top: 2rem;
+            line-height: 1.3;
+            letter-spacing: -0.015em;
+        }
+        article p { margin: 1.1em 0; }
+        article li { margin: 0.35em 0; }
+        article blockquote {
+            margin: 1.4em 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--rule);
+            color: var(--muted);
+        }
+        article code {
+            font-size: 0.92em;
+            padding: 0.1em 0.35em;
+            background: rgba(28, 25, 23, 0.06);
+            border-radius: 3px;
+        }
+        article pre {
+            overflow-x: auto;
+            padding: 1rem 1.1rem;
+            background: rgba(28, 25, 23, 0.06);
+            border-radius: 4px;
+        }
+        article pre code {
+            padding: 0;
+            background: none;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--rule);
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <p class="site-name"><a href="index.html">Murthy</a></p>
+            <h1>On writing in public</h1>
+            
+            <p class="meta">July 21, 2026</p>
+            
+        </header>
+        <article>
+            <p>Most useful thinking never leaves a notebook. Writing in public forces a higher bar: if an idea cannot survive being stated clearly, it probably was not ready.</p>
+
+<p>This site is where I publish essays — long-form notes on technology, systems, and the craft of building things that last. The goal is not volume. It is clarity.</p>
+
+<p>I write here the way I wish more of the internet still worked: one person, one page, an argument you can finish in a sitting. No feed. No scoreboard. Just the text.</p>
+
+<p>If something here is useful, take it. If something is wrong, tell me. The point of publishing is not to be finished — it is to be correctable.</p>
+
+        </article>
+        <footer>
+            <a href="index.html">← All essays</a>
+        </footer>
+    </div>
+</body>
+</html>

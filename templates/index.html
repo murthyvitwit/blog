@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murthy</title>
+    <title>{{ .Config.Name }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
@@ -114,23 +114,25 @@
 </head>
 <body>
     <div class="wrap">
-        <h1 class="brand">Murthy</h1>
-        
-        <p class="bio">Essays on technology, systems, and building things that last.</p>
-        
+        <h1 class="brand">{{ .Config.Name }}</h1>
+        {{ if .Config.Bio }}
+        <p class="bio">{{ .Config.Bio }}</p>
+        {{ end }}
 
-        
+        {{ if .Essays }}
         <ul class="essays">
-            
+            {{ range .Essays }}
             <li>
-                <a href="on-writing-in-public.html">On writing in public</a>
-                
-                <span class="date">Jul 21, 2026</span>
-                
+                <a href="{{ .URL }}">{{ .Title }}</a>
+                {{ if not .Date.IsZero }}
+                <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                {{ end }}
             </li>
-            
+            {{ end }}
         </ul>
-        
+        {{ else }}
+        <p class="empty">No essays yet.</p>
+        {{ end }}
     </div>
 </body>
 </html>
