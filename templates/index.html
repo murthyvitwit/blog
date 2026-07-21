@@ -123,20 +123,22 @@
         .ctas {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.55rem 1.1rem;
+            align-items: center;
+            gap: 0.75rem 1.5rem;
             margin-top: 1.35rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.92rem;
+            font-size: 0.98rem;
         }
         .cta {
-            color: var(--faint);
+            color: var(--link);
+            font-weight: 600;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: color 0.2s ease, border-color 0.2s ease;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 0.12em;
+            transition: color 0.15s ease;
         }
         .cta:hover {
-            color: var(--link);
-            border-bottom-color: currentColor;
+            color: var(--link-hover);
         }
 
         .about {
@@ -273,7 +275,7 @@
                 <a class="cta" href="mailto:{{ .Config.Email }}">{{ .Config.Email }}</a>
                 {{ end }}
                 {{ if and .Config.CtaText .Config.CtaURL }}
-                <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }}</a>
+                <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
                 {{ end }}
             </div>
             {{ end }}
