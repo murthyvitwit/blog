@@ -25,7 +25,6 @@ type Config struct {
 	Focus       string        `yaml:"focus"`
 	Tagline     string        `yaml:"tagline"`
 	Section     string        `yaml:"section"`
-	Intro       template.HTML `yaml:"intro"`
 	Description string        `yaml:"description"`
 	SiteURL     string        `yaml:"site_url"`
 	SameAs      []string      `yaml:"same_as"`
