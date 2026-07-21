@@ -210,11 +210,11 @@
             </div>
             {{ if or (and .Config.CtaText .Config.CtaURL) .Config.Email }}
             <div class="ctas">
-                {{ if and .Config.CtaText .Config.CtaURL }}
-                <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
-                {{ end }}
                 {{ if .Config.Email }}
                 <a class="cta" href="mailto:{{ .Config.Email }}">{{ .Config.Email }}</a>
+                {{ end }}
+                {{ if and .Config.CtaText .Config.CtaURL }}
+                <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
                 {{ end }}
             </div>
             {{ end }}
