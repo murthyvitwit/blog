@@ -19,15 +19,15 @@ import (
 )
 
 type Config struct {
-	Name    string `yaml:"name"`
-	Bio     string `yaml:"bio"`
-	Focus   string `yaml:"focus"`
-	Tagline string `yaml:"tagline"`
-	Photo   string `yaml:"photo"`
-	CtaText string `yaml:"cta_text"`
-	CtaURL  string `yaml:"cta_url"`
-	Email   string `yaml:"email"`
-	Domain  string `yaml:"domain"`
+	Name    string        `yaml:"name"`
+	Bio     template.HTML `yaml:"bio"`
+	Focus   string        `yaml:"focus"`
+	Tagline string        `yaml:"tagline"`
+	Photo   string        `yaml:"photo"`
+	CtaText string        `yaml:"cta_text"`
+	CtaURL  string        `yaml:"cta_url"`
+	Email   string        `yaml:"email"`
+	Domain  string        `yaml:"domain"`
 }
 
 type FrontMatter struct {
