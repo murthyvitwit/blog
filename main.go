@@ -19,9 +19,11 @@ import (
 )
 
 type Config struct {
-	Name   string `yaml:"name"`
-	Bio    string `yaml:"bio"`
-	Domain string `yaml:"domain"`
+	Name    string `yaml:"name"`
+	Bio     string `yaml:"bio"`
+	CtaText string `yaml:"cta_text"`
+	CtaURL  string `yaml:"cta_url"`
+	Domain  string `yaml:"domain"`
 }
 
 type FrontMatter struct {
