@@ -23,6 +23,7 @@ type Config struct {
 	Bio     string `yaml:"bio"`
 	Focus   string `yaml:"focus"`
 	Tagline string `yaml:"tagline"`
+	Photo   string `yaml:"photo"`
 	CtaText string `yaml:"cta_text"`
 	CtaURL  string `yaml:"cta_url"`
 	Domain  string `yaml:"domain"`
@@ -121,6 +122,10 @@ func build() error {
 		return err
 	}
 
+	if err := copyStatic("static", outputDir); err != nil {
+		return err
+	}
+
 	fmt.Println("Blog generated successfully in the 'site' directory.")
 	return nil
 }
@@ -168,6 +173,33 @@ func writeNoJekyll(outputDir string) error {
 		return fmt.Errorf("write .nojekyll: %w", err)
 	}
 	fmt.Printf("Generated %s\n", path)
+	return nil
+}
+
+func copyStatic(srcDir, outputDir string) error {
+	entries, err := os.ReadDir(srcDir)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return fmt.Errorf("read static: %w", err)
+	}
+	for _, entry := range entries {
+		if entry.IsDir() {
+			continue
+		}
+		name := entry.Name()
+		in := filepath.Join(srcDir, name)
+		out := filepath.Join(outputDir, name)
+		data, err := os.ReadFile(in)
+		if err != nil {
+			return fmt.Errorf("read %s: %w", in, err)
+		}
+		if err := os.WriteFile(out, data, 0o644); err != nil {
+			return fmt.Errorf("write %s: %w", out, err)
+		}
+		fmt.Printf("Copied %s\n", out)
+	}
 	return nil
 }
 

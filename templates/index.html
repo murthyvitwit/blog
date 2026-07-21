@@ -55,6 +55,23 @@
             letter-spacing: -0.03em;
         }
 
+        .hero-top {
+            display: flex;
+            align-items: center;
+            gap: 1.35rem;
+        }
+
+        .photo {
+            flex-shrink: 0;
+            width: 5.5rem;
+            height: 5.5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            background: rgba(28, 25, 23, 0.06);
+            box-shadow: 0 0 0 1px rgba(28, 25, 23, 0.08);
+        }
+
         .intro {
             margin-top: 1rem;
             max-width: 30rem;
@@ -149,6 +166,17 @@
         }
 
         @media (max-width: 520px) {
+            .hero-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .photo {
+                width: 4.75rem;
+                height: 4.75rem;
+            }
+
             .essays li {
                 grid-template-columns: 1fr;
                 gap: 0.25rem;
@@ -159,7 +187,12 @@
 <body>
     <div class="wrap">
         <header class="hero">
-            <h1 class="brand">{{ .Config.Name }}</h1>
+            <div class="hero-top">
+                {{ if .Config.Photo }}
+                <img class="photo" src="{{ .Config.Photo }}" alt="{{ .Config.Name }}" width="88" height="88">
+                {{ end }}
+                <h1 class="brand">{{ .Config.Name }}</h1>
+            </div>
             <div class="intro">
                 {{ if .Config.Bio }}
                 <p class="bio">{{ .Config.Bio }}</p>
