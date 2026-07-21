@@ -6,11 +6,11 @@ focus: ""
 section: Freethoughts
 tagline: Essays on technology, business and systems.
 intro: |
-  <p class="lede">I investigate how technology, businesses and systems work from first principles.</p>
-  <p class="body-line">I write to understand the world, not to defend opinions.</p>
-  <p class="body-line">These essays are an exercise in freethought—questioning assumptions and following evidence.</p>
-  <p class="question-label">Most begin with a simple question:</p>
-  <p class="question">Why does this exist?</p>
+  <p>I investigate how technology, businesses and systems work from first principles.</p>
+  <p>I write to understand the world, not to defend opinions.</p>
+  <p>These essays are an exercise in freethought—questioning assumptions and following evidence.</p>
+  <p>Most begin with a simple question:</p>
+  <p>Why does this exist?</p>
 description: Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.
 site_url: https://murthy.xyz
 same_as:
