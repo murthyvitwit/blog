@@ -120,6 +120,16 @@
             border-bottom-color: currentColor;
         }
 
+        .focus {
+            margin: 0.55rem 0 0;
+            max-width: 34rem;
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--ink);
+            line-height: 1.55;
+        }
+
         .ctas {
             display: flex;
             flex-wrap: wrap;
@@ -268,6 +278,9 @@
             </div>
             {{ if .Config.Bio }}
             <p class="bio">{{ .Config.Bio }}</p>
+            {{ end }}
+            {{ if .Config.Focus }}
+            <p class="focus">{{ .Config.Focus }}</p>
             {{ end }}
             {{ if or (and .Config.CtaText .Config.CtaURL) .Config.Email }}
             <div class="ctas">
