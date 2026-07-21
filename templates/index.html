@@ -140,24 +140,12 @@
         }
 
         .manifesto {
-            margin-top: 3.75rem;
-            padding-top: 2.75rem;
-            border-top: 1px solid var(--rule);
+            margin-top: 3rem;
             animation: rise 0.8s ease-out 0.12s both;
         }
 
-        .section-mark {
-            margin: 0;
-            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--faint);
-        }
-
         .lede {
-            margin: 1.5rem 0 0;
+            margin: 0;
             font-size: clamp(1.2rem, 2.8vw, 1.4rem);
             font-weight: 400;
             line-height: 1.55;
@@ -190,22 +178,33 @@
         }
 
         .archive {
-            margin-top: 3.5rem;
+            margin-top: 3.75rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--rule);
             animation: rise 0.8s ease-out 0.22s both;
         }
 
-        .archive-label {
-            margin: 0 0 1rem;
-            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.78rem;
+        .archive-title {
+            margin: 0;
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-size: clamp(1.35rem, 3vw, 1.6rem);
             font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--faint);
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--ink);
+        }
+
+        .archive-subtitle {
+            margin: 0.55rem 0 0;
+            max-width: 28rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.5;
         }
 
         .essays {
-            margin: 0;
+            margin: 1.75rem 0 0;
             padding: 0;
             list-style: none;
         }
@@ -294,22 +293,21 @@
             {{ end }}
         </header>
 
-        <section class="manifesto" aria-label="{{ if .Config.Section }}{{ .Config.Section }}{{ else }}Essays{{ end }}">
-            {{ if .Config.Section }}
-            <p class="section-mark">{{ .Config.Section }}</p>
-            {{ end }}
-
+        <section class="manifesto" aria-label="About the writing">
             {{ if .Config.Intro }}
             <div class="manifesto-body">
                 {{ .Config.Intro }}
             </div>
-            {{ else if .Config.Tagline }}
-            <p class="lede">{{ .Config.Tagline }}</p>
             {{ end }}
         </section>
 
-        <section class="archive" aria-label="Essays">
-            <p class="archive-label">Essays</p>
+        <section class="archive" aria-label="{{ if .Config.Section }}{{ .Config.Section }}{{ else }}Essays{{ end }}">
+            {{ if .Config.Section }}
+            <h2 class="archive-title">{{ .Config.Section }}</h2>
+            {{ end }}
+            {{ if .Config.Tagline }}
+            <p class="archive-subtitle">{{ .Config.Tagline }}</p>
+            {{ end }}
             {{ if .Essays }}
             <ul class="essays">
                 {{ range .Essays }}
