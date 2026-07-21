@@ -60,8 +60,18 @@
             max-width: 32rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 1.05rem;
+            color: var(--ink);
+            line-height: 1.5;
+            opacity: 0.88;
+        }
+
+        .focus {
+            margin: 0.35rem 0 0;
+            max-width: 32rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 1.02rem;
             color: var(--muted);
-            line-height: 1.55;
+            line-height: 1.5;
         }
 
         .cta {
@@ -132,6 +142,9 @@
         <h1 class="brand">{{ .Config.Name }}</h1>
         {{ if .Config.Bio }}
         <p class="bio">{{ .Config.Bio }}</p>
+        {{ end }}
+        {{ if .Config.Focus }}
+        <p class="focus">{{ .Config.Focus }}</p>
         {{ end }}
         {{ if and .Config.CtaText .Config.CtaURL }}
         <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
