@@ -55,28 +55,32 @@
             letter-spacing: -0.03em;
         }
 
+        .intro {
+            margin-top: 1rem;
+            max-width: 30rem;
+        }
+
         .bio {
-            margin: 0.85rem 0 0;
-            max-width: 32rem;
+            margin: 0;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 1.05rem;
+            font-size: 1.08rem;
+            font-weight: 600;
             color: var(--ink);
-            line-height: 1.5;
-            opacity: 0.88;
+            line-height: 1.45;
         }
 
         .focus {
-            margin: 0.35rem 0 0;
-            max-width: 32rem;
+            margin: 0.3rem 0 0;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 1.02rem;
+            font-weight: 400;
             color: var(--muted);
             line-height: 1.5;
         }
 
         .cta {
             display: inline-block;
-            margin-top: 1.15rem;
+            margin-top: 1.25rem;
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
             font-size: 0.98rem;
             font-weight: 600;
@@ -89,10 +93,25 @@
             color: var(--link-hover);
         }
 
-        .essays {
+        .writing {
             margin-top: 3rem;
-            padding-top: 1.5rem;
+            padding-top: 1.75rem;
             border-top: 1px solid var(--rule);
+        }
+
+        .tagline {
+            margin: 0 0 1.25rem;
+            max-width: 28rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.98rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        .essays {
+            margin: 0;
             list-style: none;
             padding-left: 0;
         }
@@ -124,7 +143,7 @@
         }
 
         .empty {
-            margin-top: 3rem;
+            margin: 0;
             color: var(--muted);
             font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
         }
@@ -139,31 +158,40 @@
 </head>
 <body>
     <div class="wrap">
-        <h1 class="brand">{{ .Config.Name }}</h1>
-        {{ if .Config.Bio }}
-        <p class="bio">{{ .Config.Bio }}</p>
-        {{ end }}
-        {{ if .Config.Focus }}
-        <p class="focus">{{ .Config.Focus }}</p>
-        {{ end }}
-        {{ if and .Config.CtaText .Config.CtaURL }}
-        <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
-        {{ end }}
-
-        {{ if .Essays }}
-        <ul class="essays">
-            {{ range .Essays }}
-            <li>
-                <a href="{{ .URL }}">{{ .Title }}</a>
-                {{ if not .Date.IsZero }}
-                <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        <header class="hero">
+            <h1 class="brand">{{ .Config.Name }}</h1>
+            <div class="intro">
+                {{ if .Config.Bio }}
+                <p class="bio">{{ .Config.Bio }}</p>
                 {{ end }}
-            </li>
+                {{ if .Config.Focus }}
+                <p class="focus">{{ .Config.Focus }}</p>
+                {{ end }}
+            </div>
+            {{ if and .Config.CtaText .Config.CtaURL }}
+            <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
             {{ end }}
-        </ul>
-        {{ else }}
-        <p class="empty">No essays yet.</p>
-        {{ end }}
+        </header>
+
+        <section class="writing" aria-label="Essays">
+            {{ if .Config.Tagline }}
+            <p class="tagline">{{ .Config.Tagline }}</p>
+            {{ end }}
+            {{ if .Essays }}
+            <ul class="essays">
+                {{ range .Essays }}
+                <li>
+                    <a href="{{ .URL }}">{{ .Title }}</a>
+                    {{ if not .Date.IsZero }}
+                    <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    {{ end }}
+                </li>
+                {{ end }}
+            </ul>
+            {{ else }}
+            <p class="empty">No essays yet.</p>
+            {{ end }}
+        </section>
     </div>
 </body>
 </html>

@@ -22,6 +22,7 @@ type Config struct {
 	Name    string `yaml:"name"`
 	Bio     string `yaml:"bio"`
 	Focus   string `yaml:"focus"`
+	Tagline string `yaml:"tagline"`
 	CtaText string `yaml:"cta_text"`
 	CtaURL  string `yaml:"cta_url"`
 	Domain  string `yaml:"domain"`
