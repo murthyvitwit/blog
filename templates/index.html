@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ if .Config.Section }}{{ .Config.Name }} | {{ .Config.Section }}{{ else }}{{ .Config.Name }}{{ end }}</title>
+    <title>{{ .PageTitle }}</title>
+    {{ if .Config.Description }}
+    <meta name="description" content="{{ .Config.Description }}">
+    {{ end }}
+    <link rel="canonical" href="{{ .Canonical }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ .SiteName }}">
+    <meta property="og:title" content="{{ .PageTitle }}">
+    {{ if .Config.Description }}
+    <meta property="og:description" content="{{ .Config.Description }}">
+    {{ end }}
+    <meta property="og:url" content="{{ .Canonical }}">
+    {{ if .ImageURL }}
+    <meta property="og:image" content="{{ .ImageURL }}">
+    {{ end }}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ .PageTitle }}">
+    {{ if .Config.Description }}
+    <meta name="twitter:description" content="{{ .Config.Description }}">
+    {{ end }}
+    {{ if .ImageURL }}
+    <meta name="twitter:image" content="{{ .ImageURL }}">
+    {{ end }}
+    <script type="application/ld+json">{{ .JSONLD }}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">

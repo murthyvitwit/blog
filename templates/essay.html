@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Essay.Title }} — {{ .Config.Name }}</title>
+    <title>{{ .PageTitle }}</title>
+    {{ if .Essay.Description }}
+    <meta name="description" content="{{ .Essay.Description }}">
+    {{ end }}
+    <link rel="canonical" href="{{ .Canonical }}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="{{ .SiteName }}">
+    <meta property="og:title" content="{{ .PageTitle }}">
+    {{ if .Essay.Description }}
+    <meta property="og:description" content="{{ .Essay.Description }}">
+    {{ end }}
+    <meta property="og:url" content="{{ .Canonical }}">
+    {{ if .ImageURL }}
+    <meta property="og:image" content="{{ .ImageURL }}">
+    {{ end }}
+    {{ if not .Essay.Date.IsZero }}
+    <meta property="article:published_time" content="{{ .Essay.Date.Format "2006-01-02" }}">
+    {{ end }}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ .PageTitle }}">
+    {{ if .Essay.Description }}
+    <meta name="twitter:description" content="{{ .Essay.Description }}">
+    {{ end }}
+    {{ if .ImageURL }}
+    <meta name="twitter:image" content="{{ .ImageURL }}">
+    {{ end }}
+    <script type="application/ld+json">{{ .JSONLD }}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
