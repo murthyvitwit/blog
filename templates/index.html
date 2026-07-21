@@ -120,39 +120,8 @@
             border-bottom-color: currentColor;
         }
 
-        .focus {
-            margin: 0.55rem 0 0;
-            max-width: 34rem;
-            font-family: "Literata", Georgia, "Times New Roman", serif;
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: var(--ink);
-            line-height: 1.55;
-        }
-
-        .ctas {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 0.75rem 1.5rem;
-            margin-top: 1.35rem;
-            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
-            font-size: 0.98rem;
-        }
-        .cta {
-            color: var(--link);
-            font-weight: 600;
-            text-decoration: none;
-            border-bottom: 1px solid currentColor;
-            padding-bottom: 0.12em;
-            transition: color 0.15s ease;
-        }
-        .cta:hover {
-            color: var(--link-hover);
-        }
-
         .about {
-            margin: 1.75rem 0 0;
+            margin: 1.15rem 0 0;
             max-width: 34rem;
             font-size: 1.06rem;
             line-height: 1.7;
@@ -173,6 +142,27 @@
             font-style: italic;
             font-weight: 600;
             color: var(--ink);
+        }
+
+        .ctas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem 1.5rem;
+            margin-top: 1.5rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.98rem;
+        }
+        .cta {
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 0.12em;
+            transition: color 0.15s ease;
+        }
+        .cta:hover {
+            color: var(--link-hover);
         }
 
         .archive {
@@ -279,8 +269,10 @@
             {{ if .Config.Bio }}
             <p class="bio">{{ .Config.Bio }}</p>
             {{ end }}
-            {{ if .Config.Focus }}
-            <p class="focus">{{ .Config.Focus }}</p>
+            {{ if .Config.Intro }}
+            <div class="about">
+                {{ .Config.Intro }}
+            </div>
             {{ end }}
             {{ if or (and .Config.CtaText .Config.CtaURL) .Config.Email }}
             <div class="ctas">
@@ -290,11 +282,6 @@
                 {{ if and .Config.CtaText .Config.CtaURL }}
                 <a class="cta" href="{{ .Config.CtaURL }}" target="_blank" rel="noopener noreferrer">{{ .Config.CtaText }} →</a>
                 {{ end }}
-            </div>
-            {{ end }}
-            {{ if .Config.Intro }}
-            <div class="about">
-                {{ .Config.Intro }}
             </div>
             {{ end }}
         </header>
