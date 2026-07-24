@@ -491,7 +491,8 @@ func splitFrontMatter(data []byte) (FrontMatter, []byte, error) {
 }
 
 func mdToHTML(md []byte) []byte {
-	extensions := parser.CommonExtensions | parser.AutoHeadingIDs
+	// CommonExtensions includes MathJax, which treats $...$ as math and breaks dollar amounts.
+	extensions := (parser.CommonExtensions | parser.AutoHeadingIDs) &^ parser.MathJax
 	p := parser.NewWithExtensions(extensions)
 	doc := p.Parse(md)
 	opts := html.RendererOptions{Flags: html.CommonFlags | html.HrefTargetBlank}
