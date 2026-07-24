@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murthy | Freethoughts</title>
+    
+    <meta name="description" content="Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.">
+    
+    <link rel="canonical" href="https://murthy.xyz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Freethoughts">
+    <meta property="og:title" content="Murthy | Freethoughts">
+    
+    <meta property="og:description" content="Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.">
+    
+    <meta property="og:url" content="https://murthy.xyz/">
+    
+    <meta property="og:image" content="https://murthy.xyz/murthy.jpg">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Murthy | Freethoughts">
+    
+    <meta name="twitter:description" content="Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.">
+    
+    
+    <meta name="twitter:image" content="https://murthy.xyz/murthy.jpg">
+    
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "author": {
+        "@type": "Person",
+        "name": "Murthy"
+      },
+      "description": "Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.",
+      "name": "Freethoughts",
+      "url": "https://murthy.xyz/"
+    },
+    {
+      "@type": "Person",
+      "description": "Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.",
+      "email": "murthy@vitwit.com",
+      "image": "https://murthy.xyz/murthy.jpg",
+      "name": "Murthy",
+      "sameAs": [
+        "https://www.linkedin.com/in/murthyvitwit/",
+        "https://github.com/murthyvitwit"
+      ],
+      "url": "https://murthy.xyz/"
+    }
+  ]
+}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1816;
+            --body: #4a4642;
+            --muted: #6b6560;
+            --faint: #9a938c;
+            --link: #1d4e4a;
+            --link-hover: #0f2f2c;
+            --rule: #e2ddd6;
+            --bg: #f6f2eb;
+            --paper: rgba(255, 252, 247, 0.55);
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--ink);
+            font-family: "Literata", Georgia, "Times New Roman", serif;
+            font-optical-sizing: auto;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            background:
+                radial-gradient(ellipse 90% 60% at 50% -20%, rgba(29, 78, 74, 0.06), transparent 60%),
+                var(--bg);
+        }
+
+        a {
+            color: var(--link);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.18em;
+        }
+        a:hover { color: var(--link-hover); }
+
+        .wrap {
+            width: min(36rem, calc(100% - 2.75rem));
+            margin: 0 auto;
+            padding: 4rem 0 5rem;
+        }
+
+        .hero {
+            animation: rise 0.7s ease-out both;
+        }
+
+        .identity {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .photo {
+            flex-shrink: 0;
+            width: 4.25rem;
+            height: 4.25rem;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            background: var(--paper);
+            box-shadow: 0 0 0 1px rgba(26, 24, 22, 0.08);
+        }
+
+        .brand {
+            margin: 0;
+            font-size: clamp(2.1rem, 6vw, 2.75rem);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+        }
+
+        .bio {
+            margin: 0.65rem 0 0;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .bio a {
+            color: var(--ink);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(26, 24, 22, 0.25);
+        }
+        .bio a:hover {
+            color: var(--link);
+            border-bottom-color: currentColor;
+        }
+
+        .about {
+            margin: 1.35rem 0 0;
+            max-width: 34rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--body);
+            line-height: 1.55;
+        }
+        .about p {
+            margin: 0 0 0.65rem;
+        }
+        .about p:last-child {
+            margin-bottom: 0;
+        }
+
+        .ctas {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.75rem 1.5rem;
+            margin-top: 1.75rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+        }
+        .cta {
+            color: var(--link);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid currentColor;
+            padding-bottom: 0.12em;
+            transition: color 0.15s ease;
+        }
+        .cta:hover {
+            color: var(--link-hover);
+        }
+
+        .archive {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+            animation: rise 0.8s ease-out 0.15s both;
+        }
+
+        .archive-title {
+            margin: 0;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+            color: var(--muted);
+        }
+
+        .archive-subtitle {
+            margin: 0.55rem 0 0;
+            max-width: 28rem;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .essays {
+            margin: 2rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .essays li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.25rem;
+            padding: 0.95rem 0;
+            border-top: 1px solid var(--rule);
+        }
+        .essays li:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .essays a {
+            color: var(--ink);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            transition: color 0.2s ease;
+        }
+        .essays a:hover { color: var(--link); }
+
+        .date {
+            flex-shrink: 0;
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+            font-size: 0.88rem;
+            color: var(--faint);
+        }
+
+        .empty {
+            margin: 0;
+            color: var(--muted);
+            font-family: "Source Sans 3", "Helvetica Neue", sans-serif;
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(0.65rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero, .archive { animation: none; }
+        }
+
+        @media (max-width: 520px) {
+            .wrap { padding: 3rem 0 4rem; }
+            .identity { gap: 0.95rem; }
+            .photo { width: 3.75rem; height: 3.75rem; }
+            .essays li {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="hero">
+            <div class="identity">
+                
+                <img class="photo" src="murthy.jpg" alt="Murthy" width="68" height="68">
+                
+                <h1 class="brand">Murthy</h1>
+            </div>
+            
+            <p class="bio">Cofounder of <a href="https://vitwit.com" target="_blank" rel="noopener noreferrer">Vitwit</a> and <a href="https://kriyaapp.com" target="_blank" rel="noopener noreferrer">Kriya AI App</a>.</p>
+            
+            
+            <div class="about">
+                <p>I investigate how technology, businesses and systems work from first principles.</p>
+<p>I write to understand the world, not to defend opinions.</p>
+<p>These essays are an exercise in freethought—questioning assumptions and following evidence.</p>
+
+            </div>
+            
+            
+            <div class="ctas">
+                
+                <a class="cta" href="mailto:murthy@vitwit.com">murthy@vitwit.com</a>
+                
+                
+                <a class="cta" href="https://www.linkedin.com/in/murthyvitwit/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn →</a>
+                
+            </div>
+            
+        </header>
+
+        <section class="archive" aria-label="Freethoughts">
+            
+            <h2 class="archive-title">Freethoughts</h2>
+            
+            
+            
+            <ul class="essays">
+                
+                <li>
+                    <a href="from-building-for-the-world-to-building-for-india.html">From building for the world to building for India</a>
+                    
+                    <span class="date">Jul 24, 2026</span>
+                    
+                </li>
+                
+                <li>
+                    <a href="every-practice-is-a-living-theory.html">Every practice is a living theory</a>
+                    
+                    <span class="date">Jul 22, 2026</span>
+                    
+                </li>
+                
+            </ul>
+            
+        </section>
+    </div>
+</body>
+</html>

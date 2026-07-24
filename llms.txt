@@ -1,0 +1,17 @@
+# Murthy
+
+> Freethoughts — personal essays by Murthy.
+
+Cofounder of Vitwit and Kriya AI App. Freethought essays on technology, business and systems.
+
+## Site
+
+- Home: https://murthy.xyz/
+- Email: murthy@vitwit.com
+- https://www.linkedin.com/in/murthyvitwit/
+- https://github.com/murthyvitwit
+
+## Essays
+
+- [From building for the world to building for India](https://murthy.xyz/from-building-for-the-world-to-building-for-india.html): 2026-07-24
+- [Every practice is a living theory](https://murthy.xyz/every-practice-is-a-living-theory.html): 2026-07-22
